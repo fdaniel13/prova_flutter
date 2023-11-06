@@ -9,7 +9,7 @@ class AppModule extends Module {
 
   @override
   void routes(r) {
-    r.module('/auth',
+    r.module(Modular.initialRoute,
         module: LoginModule(), transition: TransitionType.noTransition);
     r.module('/home',
         module: HomeModule(), transition: TransitionType.noTransition);
