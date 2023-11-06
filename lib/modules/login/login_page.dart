@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -124,7 +125,9 @@ class _LoginPageState extends State<LoginPage> {
                 height: 64,
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Modular.to.pushNamed("webPage");
+                  },
                   child: Text(
                     "Política de Privacidade",
                     style: GoogleFonts.openSans(
