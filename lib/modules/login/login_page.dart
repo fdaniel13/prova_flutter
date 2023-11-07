@@ -19,32 +19,22 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        height: MediaQuery.sizeOf(context).height,
-        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
-        decoration: const BoxDecoration(
-            gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color.fromARGB(255, 14, 59, 52),
-            Color.fromARGB(255, 35, 137, 122),
-          ],
-        )),
-        child: Scaffold(
-          appBar: PreferredSize(
-            preferredSize: const Size.fromHeight(0),
-            child: AppBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              systemOverlayStyle: const SystemUiOverlayStyle(
-                statusBarColor: Colors.transparent,
-              ),
-            ),
-          ),
-          backgroundColor: Colors.transparent,
-          body: Column(
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: SingleChildScrollView(
+        child: Container(
+          height: MediaQuery.sizeOf(context).height,
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 32),
+          decoration: const BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color.fromARGB(255, 14, 59, 52),
+              Color.fromARGB(255, 35, 137, 122),
+            ],
+          )),
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Form(
