@@ -10,4 +10,12 @@ class Functions {
 
     return "$digest";
   }
+
+  int hashInt({required String text}) {
+    var bytes = utf8.encode(text);
+
+    var digest = sha1.convert(bytes);
+
+    return digest.hashCode;
+  }
 }

@@ -17,4 +17,6 @@ class HomeController {
       await _sharedPreferencesService.saveList(key: keyShared, value: values);
     }
   }
+
+  int? editTextId;
 }

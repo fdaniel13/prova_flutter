@@ -25,7 +25,7 @@ abstract class _Crud with Store {
 
   @action
   void addText({required String text}) {
-    listText.add(TextData(text: text, id: listText.length));
+    listText.add(TextData(text: text, id: Random().nextInt(700)));
   }
 
   @action
@@ -35,6 +35,8 @@ abstract class _Crud with Store {
 
   @action
   void editText({required int id, required String value}) {
-    listText.firstWhere((element) => element.id == id).text = value;
+    listText.removeWhere((element) => element.id == id);
+
+    addText(text: value);
   }
 }

@@ -15,12 +15,20 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final textController = TextEditingController();
   final controller = Modular.get<HomeController>();
+  Future? data;
+  @override
+  void initState() {
+    controller.editTextId = null;
+    data = controller.crud.initTextList();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: FutureBuilder(
-          future: controller.crud.initTextList(),
+          future: data,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Container(
@@ -83,9 +91,16 @@ class _HomePageState extends State<HomePage> {
                         child: TextFormField(
                       controller: textController,
                       onFieldSubmitted: (text) async {
-                        controller.crud.addText(text: text);
+                        if (controller.editTextId == null) {
+                          controller.crud.addText(text: text);
+                        } else {
+                          controller.crud.editText(
+                            id: controller.editTextId!,
+                            value: text,
+                          );
+                          controller.editTextId = null;
+                        }
                         await controller.saveText(text: text);
-
                         textController.clear();
                       },
                       textAlign: TextAlign.center,
@@ -150,7 +165,10 @@ class _HomePageState extends State<HomePage> {
             children: [
               IconButton(
                 padding: EdgeInsets.zero,
-                onPressed: () {},
+                onPressed: () {
+                  textController.text = value.text!;
+                  controller.editTextId = value.id;
+                },
                 icon: Icon(
                   Icons.border_color,
                 ),
