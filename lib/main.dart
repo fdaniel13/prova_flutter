@@ -10,7 +10,7 @@ import 'package:crypto/crypto.dart';
 import 'dart:convert'; // for the utf8.encode method
 
 Future<void> main() async {
-  var bytes = utf8.encode("senhaaleatoria"); // data being hashed
+  var bytes = utf8.encode("senha"); // data being hashed
 
   var digest = sha1.convert(bytes);
 

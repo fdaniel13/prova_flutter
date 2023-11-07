@@ -8,8 +8,8 @@ import 'pages/web_view_page.dart';
 class LoginModule extends Module {
   @override
   void binds(i) {
-    i.add((i) => LoginRepository());
-    i.add((i) => LoginController());
+    i.add(LoginRepository.new);
+    i.add(LoginController.new);
   }
 
   @override
