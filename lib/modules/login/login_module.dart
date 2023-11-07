@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'login_controller.dart';
 import 'login_page.dart';
 import 'login_repository.dart';
-import 'pages/web_view_page.dart';
+import '../../core/pages/web_view_page.dart';
 
 class LoginModule extends Module {
   @override

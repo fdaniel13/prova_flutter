@@ -90,6 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                         height: 8,
                       ),
                       TextFormField(
+                        obscureText: true,
                         controller: passController,
                         validator: (text) {
                           return controller.validatePass(pass: text)
